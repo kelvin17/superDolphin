@@ -38,6 +38,8 @@ public class CoachController {
         activity.setCoachName(coachName);
         activity.setDescription(request.getDescription());
         activity.setDate(request.getDate());
+        activity.setLimitCountLower(request.getLimitLower());
+        activity.setLimitCountHigher(request.getLimitHigher());
         ApiResponse response;
         try {
             coachService.createActivity(activity);
