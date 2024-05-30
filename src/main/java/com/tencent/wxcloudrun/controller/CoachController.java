@@ -35,6 +35,7 @@ public class CoachController {
         //获取登陆态
         String coachName = request.getCoachName();
         Activity activity = new Activity();
+        activity.setName(request.getActivityName());
         activity.setCoachName(coachName);
         activity.setDescription(request.getDescription());
         activity.setDate(request.getDate());
