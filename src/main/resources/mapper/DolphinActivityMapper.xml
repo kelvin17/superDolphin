@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.DolphinActivityMapper">
+
+    <resultMap id="activityMapper" type="com.tencent.wxcloudrun.model.Activity">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="date" column="date" javaType="java.util.Date"/>
+        <result property="fee" column="fee"/>
+        <result property="limitCountLower" column="limit_count_lower"/>
+        <result property="limitCountHigher" column="limit_count_higher"/>
+        <result property="coachName" column="coach_name"/>
+    </resultMap>
+
+    <select id="getActivityDetail" resultMap="activityMapper" parameterType="java.lang.Integer">
+        SELECT `id`, `name`, `description`, `date`, `fee`, `limit_count_lower`,`limit_count_higher`,`coach_name`
+        FROM dolphin_activity
+        WHERE id = #{id}
+    </select>
+
+    <update id="createActivity" parameterType="com.tencent.wxcloudrun.model.Activity">
+        INSERT INTO `dolphin_activity`(`name`, `description`, `date`, `fee`,
+        `limit_count_lower`,`limit_count_higher`,`coach_name`)
+        VALUE(#{name}, #{description}, #{date},#{fee},#{limit_count_lower},#{limit_count_higher},#{coach_name})
+    </update>
+
+</mapper>
