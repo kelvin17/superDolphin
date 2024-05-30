@@ -44,7 +44,7 @@ public class CoachController {
         activity.setLimitCountHigher(request.getLimitHigher());
         ApiResponse response;
         try {
-            logger.info("创建 activity:{}", activity);
+            logger.info("what happened？创建 activity:{}", activity);
             coachService.createActivity(activity);
             response = ApiResponse.ok("创建活动成功");
             logger.info("{} 发起活动 {} 成功", activity.getCoachName(), activity.getName());
