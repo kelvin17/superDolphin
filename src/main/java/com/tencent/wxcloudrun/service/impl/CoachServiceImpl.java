@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.service.impl;
 import com.tencent.wxcloudrun.dao.DolphinActivityMapper;
 import com.tencent.wxcloudrun.model.Activity;
 import com.tencent.wxcloudrun.service.CoachService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,7 +11,7 @@ public class CoachServiceImpl implements CoachService {
 
     final DolphinActivityMapper dolphinActivityMapper;
 
-    public CoachServiceImpl(DolphinActivityMapper dolphinActivityMapper) {
+    public CoachServiceImpl(@Autowired DolphinActivityMapper dolphinActivityMapper) {
         this.dolphinActivityMapper = dolphinActivityMapper;
     }
 

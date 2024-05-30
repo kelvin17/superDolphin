@@ -4,21 +4,25 @@ import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.dto.ActivityRequest;
 import com.tencent.wxcloudrun.model.Activity;
 import com.tencent.wxcloudrun.service.CoachService;
+import com.tencent.wxcloudrun.service.CounterService;
 import org.slf4j.Logger;
-import org.springframework.stereotype.Controller;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class CoachController {
 
     final Logger logger;
     final CoachService coachService;
 
-    public CoachController(Logger logger, CoachService coachService) {
-        this.logger = logger;
+    public CoachController(@Autowired CoachService coachService) {
+        this.logger = LoggerFactory.getLogger(CoachController.class);
         this.coachService = coachService;
     }
+
 
     /**
      * 创建新的活动
