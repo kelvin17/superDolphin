@@ -4,7 +4,6 @@ import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.dto.ActivityRequest;
 import com.tencent.wxcloudrun.model.Activity;
 import com.tencent.wxcloudrun.service.CoachService;
-import com.tencent.wxcloudrun.service.CounterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +32,7 @@ public class CoachController {
     @PostMapping(value = "/api/coach/create_activity")
     public ApiResponse createActivity(ActivityRequest request) {
         //获取登陆态
+        logger.info("the request {}", request);
         String coachName = request.getCoachName();
         Activity activity = new Activity();
         activity.setName(request.getActivityName());
@@ -52,10 +52,7 @@ public class CoachController {
             logger.error("创建活动[{}]时异常", activity, e);
             response = ApiResponse.error(e.getMessage());
         }
-
         return response;
-
-
     }
 
     /**
