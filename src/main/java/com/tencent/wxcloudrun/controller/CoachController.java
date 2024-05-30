@@ -49,7 +49,7 @@ public class CoachController {
             response = ApiResponse.ok("创建活动成功");
             logger.info("{} 发起活动 {} 成功", activity.getCoachName(), activity.getName());
         } catch (Exception e) {
-            logger.error("创建活动时异常", e);
+            logger.error("创建活动[{}]时异常", activity, e);
             response = ApiResponse.error(e.getMessage());
         }
 
