@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -30,7 +31,7 @@ public class CoachController {
      * @return
      */
     @PostMapping(value = "/api/coach/create_activity")
-    public ApiResponse createActivity(ActivityRequest request) {
+    public ApiResponse createActivity(@RequestBody ActivityRequest request) {
         //获取登陆态
         logger.info("the request {}", request);
         String coachName = request.getCoachName();
