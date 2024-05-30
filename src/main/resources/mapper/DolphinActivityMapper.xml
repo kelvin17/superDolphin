@@ -22,7 +22,7 @@
     <update id="createActivity" parameterType="com.tencent.wxcloudrun.model.Activity">
         INSERT INTO `dolphin_activity`(`name`, `description`, `date`, `fee`,
         `limit_count_lower`,`limit_count_higher`,`coach_name`)
-        VALUE(#{name}, #{description}, #{date},#{fee},#{limit_count_lower},#{limit_count_higher},#{coach_name})
+        VALUE(#{name}, #{description}, #{date},#{fee},#{limitCountLower},#{limitCountHigher},#{coachName})
     </update>
 
 </mapper>
